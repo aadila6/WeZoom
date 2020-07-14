@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C5F384E924BD7633007D88FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F384E824BD7633007D88FE /* AppDelegate.swift */; };
+		C5F384EB24BD7633007D88FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F384EA24BD7633007D88FE /* SceneDelegate.swift */; };
+		C5F384ED24BD7633007D88FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F384EC24BD7633007D88FE /* ViewController.swift */; };
+		C5F384F024BD7633007D88FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5F384EE24BD7633007D88FE /* Main.storyboard */; };
+		C5F384F224BD7637007D88FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5F384F124BD7637007D88FE /* Assets.xcassets */; };
+		C5F384F524BD7637007D88FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5F384F324BD7637007D88FE /* LaunchScreen.storyboard */; };
+		C5F384FE24BD7C38007D88FE /* MobileRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5F384FD24BD7C38007D88FE /* MobileRTC.framework */; };
+		C5F384FF24BD7C38007D88FE /* MobileRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C5F384FD24BD7C38007D88FE /* MobileRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C5F3850224BD7C6E007D88FE /* MobileRTCResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C5F3850124BD7C6E007D88FE /* MobileRTCResources.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C5F3850024BD7C38007D88FE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C5F384FF24BD7C38007D88FE /* MobileRTC.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C5F384E524BD7633007D88FE /* WeZoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeZoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5F384E824BD7633007D88FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C5F384EA24BD7633007D88FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C5F384EC24BD7633007D88FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C5F384EF24BD7633007D88FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C5F384F124BD7637007D88FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C5F384F424BD7637007D88FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C5F384F624BD7637007D88FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5F384FD24BD7C38007D88FE /* MobileRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileRTC.framework; path = ZoomSDK/MobileRTC.framework; sourceTree = "<group>"; };
+		C5F3850124BD7C6E007D88FE /* MobileRTCResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MobileRTCResources.bundle; path = ZoomSDK/MobileRTCResources.bundle; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C5F384E224BD7633007D88FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5F384FE24BD7C38007D88FE /* MobileRTC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C5F384DC24BD7633007D88FE = {
+			isa = PBXGroup;
+			children = (
+				C5F3850124BD7C6E007D88FE /* MobileRTCResources.bundle */,
+				C5F384E724BD7633007D88FE /* WeZoom */,
+				C5F384E624BD7633007D88FE /* Products */,
+				C5F384FC24BD7C38007D88FE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C5F384E624BD7633007D88FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C5F384E524BD7633007D88FE /* WeZoom.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C5F384E724BD7633007D88FE /* WeZoom */ = {
+			isa = PBXGroup;
+			children = (
+				C5F384E824BD7633007D88FE /* AppDelegate.swift */,
+				C5F384EA24BD7633007D88FE /* SceneDelegate.swift */,
+				C5F384EC24BD7633007D88FE /* ViewController.swift */,
+				C5F384EE24BD7633007D88FE /* Main.storyboard */,
+				C5F384F124BD7637007D88FE /* Assets.xcassets */,
+				C5F384F324BD7637007D88FE /* LaunchScreen.storyboard */,
+				C5F384F624BD7637007D88FE /* Info.plist */,
+			);
+			path = WeZoom;
+			sourceTree = "<group>";
+		};
+		C5F384FC24BD7C38007D88FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C5F384FD24BD7C38007D88FE /* MobileRTC.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C5F384E424BD7633007D88FE /* WeZoom */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5F384F924BD7637007D88FE /* Build configuration list for PBXNativeTarget "WeZoom" */;
+			buildPhases = (
+				C5F384E124BD7633007D88FE /* Sources */,
+				C5F384E224BD7633007D88FE /* Frameworks */,
+				C5F384E324BD7633007D88FE /* Resources */,
+				C5F3850024BD7C38007D88FE /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeZoom;
+			productName = WeZoom;
+			productReference = C5F384E524BD7633007D88FE /* WeZoom.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C5F384DD24BD7633007D88FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Adila Abudureheman";
+				TargetAttributes = {
+					C5F384E424BD7633007D88FE = {
+						CreatedOnToolsVersion = 11.5;
+					};
+				};
+			};
+			buildConfigurationList = C5F384E024BD7633007D88FE /* Build configuration list for PBXProject "WeZoom" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C5F384DC24BD7633007D88FE;
+			productRefGroup = C5F384E624BD7633007D88FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C5F384E424BD7633007D88FE /* WeZoom */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C5F384E324BD7633007D88FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5F3850224BD7C6E007D88FE /* MobileRTCResources.bundle in Resources */,
+				C5F384F524BD7637007D88FE /* LaunchScreen.storyboard in Resources */,
+				C5F384F224BD7637007D88FE /* Assets.xcassets in Resources */,
+				C5F384F024BD7633007D88FE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C5F384E124BD7633007D88FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5F384ED24BD7633007D88FE /* ViewController.swift in Sources */,
+				C5F384E924BD7633007D88FE /* AppDelegate.swift in Sources */,
+				C5F384EB24BD7633007D88FE /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C5F384EE24BD7633007D88FE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5F384EF24BD7633007D88FE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C5F384F324BD7637007D88FE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5F384F424BD7637007D88FE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C5F384F724BD7637007D88FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C5F384F824BD7637007D88FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C5F384FA24BD7637007D88FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6H6P74M82Q;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZoomSDK",
+				);
+				INFOPLIST_FILE = WeZoom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucdavis.cs.WeZoom;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C5F384FB24BD7637007D88FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6H6P74M82Q;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZoomSDK",
+				);
+				INFOPLIST_FILE = WeZoom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ucdavis.cs.WeZoom;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C5F384E024BD7633007D88FE /* Build configuration list for PBXProject "WeZoom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5F384F724BD7637007D88FE /* Debug */,
+				C5F384F824BD7637007D88FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5F384F924BD7637007D88FE /* Build configuration list for PBXNativeTarget "WeZoom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C5F384FA24BD7637007D88FE /* Debug */,
+				C5F384FB24BD7637007D88FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C5F384DD24BD7633007D88FE /* Project object */;
+}
