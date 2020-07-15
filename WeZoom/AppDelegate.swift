@@ -62,7 +62,7 @@ import MobileRTC
 import MobileCoreServices
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,MobileRTCAuthDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MobileRTCAuthDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -70,6 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MobileRTCAuthDelegate {
         let navigationController = UINavigationController(rootViewController: newViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        RTCAuthInit()
+        return true
+    }
+    
+    func RTCAuthInit(){
         let mainSDK = MobileRTCSDKInitContext()
         mainSDK.domain = "zoom.us"
         MobileRTC.shared().initialize(mainSDK)
@@ -79,7 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MobileRTCAuthDelegate {
         authService?.clientKey       = "lT5nWyalm4Y18Flhbyn73K0xh6c2muHgTpa2"
         authService?.clientSecret    = "KSHEeauw3yjH7QFNZaa0iEtpQAY17udxeeqs"
         authService?.sdkAuth()
-        return true
     }
     
     func onMobileRTCAuthReturn(_ returnValue: MobileRTCAuthError) {

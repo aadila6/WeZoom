@@ -21,10 +21,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="bcf-Wt-fKF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="303" id="0pt-RM-oAG"/>
-                            <constraint firstItem="bcf-Wt-fKF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="61" id="1L0-XE-qn1"/>
-                            <constraint firstItem="bcf-Wt-fKF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="FSi-6x-bNO"/>
-                            <constraint firstItem="bcf-Wt-fKF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FW5-cy-XaK"/>
+                            <constraint firstItem="bcf-Wt-fKF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="303" id="ISv-Wg-z8T"/>
+                            <constraint firstItem="bcf-Wt-fKF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aWg-dq-Orw"/>
+                            <constraint firstItem="bcf-Wt-fKF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="61" id="dUf-Ab-mC7"/>
+                            <constraint firstItem="bcf-Wt-fKF" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="lYt-MA-726"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
