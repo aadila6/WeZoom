@@ -4,58 +4,6 @@
 //
 //  Created by Adila on 7/13/20.
 //  Copyright © 2020 Adila Abudureheman. All rights reserved.
-//
-//
-//import UIKit
-//import MobileRTC
-//import MobileCoreServices
-//
-//@UIApplicationMain
-//class AppDelegate: UIResponder, UIApplicationDelegate, MobileRTCAuthDelegate {
-//    func onMobileRTCAuthReturn(_ returnValue: MobileRTCAuthError) {
-//         print("on MobileRTCAuthReturn....  \(returnValue)");
-//    }
-//
-//    var rtc_appkey      = "lT5nWyalm4Y18Flhbyn73K0xh6c2muHgTpa2";
-//    var rtc_appsecret   = "KSHEeauw3yjH7QFNZaa0iEtpQAY17udxeeqs";
-//    var rtc_domain      = "zoom.us";
-//
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        // Override point for customization after application launch.
-//        sdkAuth();
-//        return true
-//    }
-//
-//    // MARK: UISceneSession Lifecycle
-//
-//    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-//        // Called when a new scene session is being created.
-//        // Use this method to select a configuration to create the new scene with.
-//        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-//    }
-//
-//    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-//        // Called when the user discards a scene session.
-//        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-//        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-//    }
-//
-//    func sdkAuth(){
-////        MobileRTC.shared().setMobileRTCDomain(rtc_domain);
-//
-//        let service = MobileRTC.shared().getAuthService();
-//        if (service != nil) {
-//            service?.delegate = self;
-//
-//            service?.clientKey = rtc_appkey;
-//            service?.clientSecret = rtc_appsecret;
-//
-//            service?.sdkAuth();
-//        }
-//    }
-//
-//
-//}
 
 import UIKit
 import MobileRTC
@@ -64,6 +12,8 @@ import MobileCoreServices
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MobileRTCAuthDelegate {
     var window: UIWindow?
+    var isAPIAuthenticated = false
+  
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
@@ -88,10 +38,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MobileRTCAuthDelegate {
     
     func onMobileRTCAuthReturn(_ returnValue: MobileRTCAuthError) {
         print("0 if SUCCESS: ",returnValue)
+        print("Zoom (SDK): Authentication task completed.")
+        isAPIAuthenticated = true
         if (returnValue != MobileRTCAuthError_Success)
         {
             let msg = "SDK authentication failed, error code: \(returnValue)"
             print(msg)
         }
+//        login(email: "aabudureheman@gmail.com", password: "Adila1628")
     }
+    
+//    // Authenticate user as a Zoom member.
+//    func login(email: String, password: String) {
+//      guard isAPIAuthenticated, let authService = MobileRTC.shared().getAuthService() else { return }
+//        authService.login(withEmail: email, password: password, rememberMe: true)
+//    }
+//
+//    // Handled by MobileRTCPremeetingDelegate, returns result of login function call.
+//    func onMobileRTCLoginReturn(_ returnValue: Int) {
+//      guard returnValue == 0 else {
+//        print("Zoom (User): Login task failed, error code: \(returnValue)")
+//        return
+//      }
+//      isUserAuthenticated = true
+////      guard let preMeetingService = MobileRTC.shared().getPreMeetingService() else { return }
+////      preMeetingService.delegate = self
+//      print("Zoom (User): Login task completed.")
+//    }
+//    // Handled by MobileRTCPremeetingDelegate, returns result of logout function call.
+//    func onMobileRTCLogoutReturn(_ returnValue: Int) {
+//      guard returnValue == 0 else {
+//        print("Zoom (User): Logout task failed, error code: \(returnValue)")
+//        return
+//      }
+//      isUserAuthenticated = false
+//      print("Zoom (User): Logout task completed.")
+//    }
 }

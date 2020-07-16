@@ -33,6 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C58B39AD24BFB92D00B55792 /* WeZoom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeZoom.entitlements; sourceTree = "<group>"; };
 		C5F384E524BD7633007D88FE /* WeZoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeZoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5F384E824BD7633007D88FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5F384EA24BD7633007D88FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		C5F384E724BD7633007D88FE /* WeZoom */ = {
 			isa = PBXGroup;
 			children = (
+				C58B39AD24BFB92D00B55792 /* WeZoom.entitlements */,
 				C5F384E824BD7633007D88FE /* AppDelegate.swift */,
 				C5F384EA24BD7633007D88FE /* SceneDelegate.swift */,
 				C5F384EC24BD7633007D88FE /* ViewController.swift */,
@@ -316,6 +318,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WeZoom/WeZoom.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H6P74M82Q;
 				ENABLE_BITCODE = NO;
@@ -340,6 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WeZoom/WeZoom.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H6P74M82Q;
 				ENABLE_BITCODE = NO;
