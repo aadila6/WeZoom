@@ -9,10 +9,33 @@
 import UIKit
 import MobileRTC
 
+//LOCK MEETING
+//ENTER WITHOUT REQUESTING PERMISSION
+//PRESET SETTINGS BEFORE ACTUALLY START A MEETING
+ 
+class ViewController: UIViewController, MobileRTCPremeetingDelegate {
+    
+    func sinkSchedultMeeting(_ result: PreMeetingError, meetingUniquedID uniquedID: UInt64) {
+        print(PreMeetingError.RawValue())
+        return
+    }
+    
+    func sinkEditMeeting(_ result: PreMeetingError, meetingUniquedID uniquedID: UInt64) {
+        print(PreMeetingError.RawValue())
+        return
+    }
+    
+    func sinkDeleteMeeting(_ result: PreMeetingError) {
+        print(PreMeetingError.RawValue())
+        return
+    }
+    
+    func sinkListMeeting(_ result: PreMeetingError, withMeetingItems array: [Any]) {
+        print(PreMeetingError.RawValue())
+        return
+    }
+    
 
-class ViewController: UIViewController {
-    let meetingNo = "919 4866 9521"
-    let meetingPwd = "759993"
     let kSDKUserName = "Adila"
     let ApiKey = "DR2LJG3CQlyWYeyfF3wieg"
     let ApiToken = "kdYpYCniYbZ3V109agp40jDkQyekvVgyR0fo"
@@ -40,30 +63,8 @@ class ViewController: UIViewController {
     }
     
     
-//    @objc func joinMeeting(){
-//
-//        if(self.meetingNo == "") {
-//            // If the meeting number is empty, return error.
-//            print("Please enter a meeting number")
-//            return
-//        } else {
-//            // If the meeting number is not empty.
-//            let getservice = MobileRTC.shared().getMeetingService()
-//            //            print(getservice!)
-//            if let service = getservice {
-//                service.delegate = self
-//                let paramDict =      [kMeetingParam_Username:kSDKUserName,
-//                                      kMeetingParam_MeetingNumber:meetingNo,
-//                                      kMeetingParam_MeetingPassword:meetingPwd,
-//                                      kMeetingParam_WebinarToken:"dTlmVm40NGZ0U0RrRGFmU295aWxldz09"
-//                ]
-//                let response = service.joinMeeting(with: paramDict)
-//                print("onJoinMeeting, response: \(response)")
-//            }
-//        }
-//    }
-    
     @objc func join() {
+        
         let alert = UIAlertController(title: "Meeting Credentials", message: nil, preferredStyle: .alert)
         alert.addTextField(configurationHandler: {
             (textField) in
@@ -79,18 +80,19 @@ class ViewController: UIViewController {
         
         let okay = UIAlertAction(title: "Join", style: .default, handler: {
             (action) in
-            guard let meetingNumberText = alert.textFields?[0].text, let meetingNumber = alert.textFields?[0].text, let meetingPassword = alert.textFields?[1].text else { return }
+            guard let meetingNumber = alert.textFields?[0].text, let meetingPassword = alert.textFields?[1].text else { return }
             
             let getservice = MobileRTC.shared().getMeetingService()
-            //            print(getservice!)
             if let service = getservice {
                 print("Getting started on Joining a Meeting ... ")
                 service.delegate = self
                 let paramDict =      [kMeetingParam_Username:self.kSDKUserName,
-                                      kMeetingParam_MeetingNumber:meetingNumber,
-                                      kMeetingParam_MeetingPassword:meetingPassword,
-                                      kMeetingParam_WebinarToken:"dTlmVm40NGZ0U0RrRGFmU295aWxldz09"
+                                      kMeetingParam_MeetingNumber:" 95452918130",
+                                      kMeetingParam_MeetingPassword:"393133",
+//                                      enableWaitingRoomOnEntry: "FALSE"
+//                                      kMeetingParam_WebinarToken:"K29GaksvclVCNGVEdzJMQjM0dDFOZz09"
                 ]
+//                service.disableShowVideoPreviewWhenJoinMeeting()
                 // Join Zoom meeting.
                 let response = service.joinMeeting(with: paramDict)
                 print("onJoinMeeting, response: \(response)")
@@ -107,8 +109,12 @@ class ViewController: UIViewController {
     }
     
     
+    
     @objc func start() {
+       
         let alert = UIAlertController(title: "Zoom Sign In?", message: "Please sign in to Zoom Account ", preferredStyle: .alert)
+        //Meeting setting where changes the meeting topics before hands
+        
         
        alert.addTextField(configurationHandler: {
             (textField) in
@@ -134,24 +140,48 @@ class ViewController: UIViewController {
             textField.isSecureTextEntry = true
         })
         
+        guard let preMeeting = MobileRTC.shared().getPreMeetingService() else{
+            return
+        }
+        preMeeting.delegate = self
+        guard let meetingItem = preMeeting.createMeetingItem() else{
+                   return
+        }
+        meetingItem.setMeetingTopic("LALALA")
+        meetingItem.setMeetingNumber(123123456545)
+        meetingItem.setMeetingID("CherryBlossom")
+        print("MEETING TOPIC SET: \(String(describing: meetingItem.getMeetingTopic()))")
+        print("MEETING ID: \(meetingItem.getMeetingID())")
+        print("MEETING Number: \(meetingItem.getMeetingNumber())")
+        preMeeting.scheduleMeeting(meetingItem, withScheduleFor: nil)
+        preMeeting.destroy(meetingItem)
+
+        
         let start = UIAlertAction(title: "Start", style: .default, handler: {
             (action) in
 //            guard let meetingPassword = alert.textFields?[0].text else { return }
             var paramDict: [String : Any] = [kMeetingParam_Username : self.kSDKUserName]
             // Start Zoom meeting.
+            
+//            paramDict[kMeetingParam_MeetingNumber] = meetingItem.getMeetingNumber()
 
-            paramDict[kMeetingParam_MeetingPassword] = "111"
+            paramDict[kMeetingParam_MeetingPassword] = ""
+            
             
             let getservice = MobileRTC.shared().getMeetingService()
             
             if let service = getservice {
                 print("Getting started on Starting a Meeting ... ")
                 service.delegate = self
+                
+                let pwd = service.getMeetingPassword()
+                print("pwd: \(pwd!)")
                 var paramDict: [String : Any] = [kMeetingParam_Username : self.kSDKUserName]
-                paramDict[kMeetingParam_MeetingPassword] = "111"
+//                paramDict[kMeetingParam_MeetingPassword] = "111"
                 // Start Zoom meeting
 
                 let response = service.startMeeting(with: paramDict)
+//                print()
                 print("onStartMeeting, response: \(response)")
             }
         })

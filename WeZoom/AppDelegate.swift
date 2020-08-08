@@ -48,30 +48,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MobileRTCAuthDelegate {
 //        login(email: "aabudureheman@gmail.com", password: "Adila1628")
     }
     
-//    // Authenticate user as a Zoom member.
-//    func login(email: String, password: String) {
-//      guard isAPIAuthenticated, let authService = MobileRTC.shared().getAuthService() else { return }
-//        authService.login(withEmail: email, password: password, rememberMe: true)
-//    }
-//
-//    // Handled by MobileRTCPremeetingDelegate, returns result of login function call.
-//    func onMobileRTCLoginReturn(_ returnValue: Int) {
-//      guard returnValue == 0 else {
-//        print("Zoom (User): Login task failed, error code: \(returnValue)")
-//        return
-//      }
-//      isUserAuthenticated = true
-////      guard let preMeetingService = MobileRTC.shared().getPreMeetingService() else { return }
-////      preMeetingService.delegate = self
-//      print("Zoom (User): Login task completed.")
-//    }
-//    // Handled by MobileRTCPremeetingDelegate, returns result of logout function call.
-//    func onMobileRTCLogoutReturn(_ returnValue: Int) {
-//      guard returnValue == 0 else {
-//        print("Zoom (User): Logout task failed, error code: \(returnValue)")
-//        return
-//      }
-//      isUserAuthenticated = false
-//      print("Zoom (User): Logout task completed.")
-//    }
+
 }
