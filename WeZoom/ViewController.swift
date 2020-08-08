@@ -12,7 +12,7 @@ import MobileRTC
 //LOCK MEETING
 //ENTER WITHOUT REQUESTING PERMISSION
 //PRESET SETTINGS BEFORE ACTUALLY START A MEETING
- 
+
 class ViewController: UIViewController, MobileRTCPremeetingDelegate {
     
     func sinkSchedultMeeting(_ result: PreMeetingError, meetingUniquedID uniquedID: UInt64) {
@@ -35,12 +35,12 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate {
         return
     }
     
-
+    
     let kSDKUserName = "Adila"
     let ApiKey = "DR2LJG3CQlyWYeyfF3wieg"
     let ApiToken = "kdYpYCniYbZ3V109agp40jDkQyekvVgyR0fo"
     var isUserAuthenticated = false
-      
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.init(red: 45/255, green: 45/255, blue: 45/255, alpha : 1)
@@ -89,10 +89,10 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate {
                 let paramDict =      [kMeetingParam_Username:self.kSDKUserName,
                                       kMeetingParam_MeetingNumber:" 95452918130",
                                       kMeetingParam_MeetingPassword:"393133",
-//                                      enableWaitingRoomOnEntry: "FALSE"
-//                                      kMeetingParam_WebinarToken:"K29GaksvclVCNGVEdzJMQjM0dDFOZz09"
+                                      //                                      enableWaitingRoomOnEntry: "FALSE"
+                    //                                      kMeetingParam_WebinarToken:"K29GaksvclVCNGVEdzJMQjM0dDFOZz09"
                 ]
-//                service.disableShowVideoPreviewWhenJoinMeeting()
+                //                service.disableShowVideoPreviewWhenJoinMeeting()
                 // Join Zoom meeting.
                 let response = service.joinMeeting(with: paramDict)
                 print("onJoinMeeting, response: \(response)")
@@ -111,14 +111,14 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate {
     
     
     @objc func start() {
-       
+        
         let alert = UIAlertController(title: "Zoom Sign In?", message: "Please sign in to Zoom Account ", preferredStyle: .alert)
         //Meeting setting where changes the meeting topics before hands
         
         
-       alert.addTextField(configurationHandler: {
+        alert.addTextField(configurationHandler: {
             (textField) in
-//            textField.keyboardType = .numberPad
+            //            textField.keyboardType = .numberPad
             textField.placeholder = "Email"
         })
         
@@ -127,11 +127,11 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate {
             textField.placeholder = "Password"
             textField.isSecureTextEntry = true
         })
-//        var zoomEmail = ""
-//        let zoomPwd = ""
+        //        var zoomEmail = ""
+        //        let zoomPwd = ""
         
         guard let zoomEmail = alert.textFields?[0].text, let zoomPwd = alert.textFields?[1].text else { return }
-
+        
         login(email: zoomEmail, password: zoomPwd)
         
         alert.addTextField(configurationHandler: {
@@ -145,46 +145,46 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate {
         }
         preMeeting.delegate = self
         guard let meetingItem = preMeeting.createMeetingItem() else{
-                   return
+            return
         }
         meetingItem.setMeetingTopic("LALALA")
         meetingItem.setMeetingNumber(123123456545)
         meetingItem.setMeetingID("CherryBlossom")
         print("MEETING TOPIC SET: \(String(describing: meetingItem.getMeetingTopic()))")
-        print("MEETING ID: \(meetingItem.getMeetingID())")
+        print("MEETING ID: \(String(describing: meetingItem.getMeetingID()))")
         print("MEETING Number: \(meetingItem.getMeetingNumber())")
         preMeeting.scheduleMeeting(meetingItem, withScheduleFor: nil)
         preMeeting.destroy(meetingItem)
-
+        
         
         let start = UIAlertAction(title: "Start", style: .default, handler: {
             (action) in
-//            guard let meetingPassword = alert.textFields?[0].text else { return }
+            //            guard let meetingPassword = alert.textFields?[0].text else { return }
             var paramDict: [String : Any] = [kMeetingParam_Username : self.kSDKUserName]
             // Start Zoom meeting.
             
-//            paramDict[kMeetingParam_MeetingNumber] = meetingItem.getMeetingNumber()
-
+            //            paramDict[kMeetingParam_MeetingNumber] = meetingItem.getMeetingNumber()
+            
             paramDict[kMeetingParam_MeetingPassword] = ""
-            
-            
+            //            let meetingInfo = MobileRTCInviteHelper()
+            //            print("URL: \(meetingInfo.joinMeetingURL)")
+            //            print("ID: \(meetingInfo.ongoingMeetingID)")
+            //            print("PWD: \(meetingInfo.meetingPassword)")
+            //
             let getservice = MobileRTC.shared().getMeetingService()
-            
+            //            let meetingInfo = MobileRTCInviteHelper()
             if let service = getservice {
                 print("Getting started on Starting a Meeting ... ")
                 service.delegate = self
-                
-                let pwd = service.getMeetingPassword()
-                print("pwd: \(pwd!)")
                 var paramDict: [String : Any] = [kMeetingParam_Username : self.kSDKUserName]
-//                paramDict[kMeetingParam_MeetingPassword] = "111"
+                
                 // Start Zoom meeting
-
+                
                 let response = service.startMeeting(with: paramDict)
-//                print()
                 print("onStartMeeting, response: \(response)")
             }
         })
+        
         
         alert.addAction(start)
         
@@ -194,38 +194,56 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate {
         
         present(alert, animated: true, completion: nil)
     }
-        // Authenticate user as a Zoom member.
-        func login(email: String, password: String) {
-          guard let authService = MobileRTC.shared().getAuthService() else { return }
-            authService.login(withEmail: email, password: password, rememberMe: true)
-        }
-        
-        // Handled by MobileRTCPremeetingDelegate, returns result of login function call.
-        func onMobileRTCLoginReturn(_ returnValue: Int) {
-          guard returnValue == 0 else {
+    // Authenticate user as a Zoom member.
+    func login(email: String, password: String) {
+        guard let authService = MobileRTC.shared().getAuthService() else { return }
+        authService.login(withEmail: email, password: password, rememberMe: true)
+    }
+    
+    // Handled by MobileRTCPremeetingDelegate, returns result of login function call.
+    func onMobileRTCLoginReturn(_ returnValue: Int) {
+        guard returnValue == 0 else {
             print("Zoom (User): Login task failed, error code: \(returnValue)")
             return
-          }
-          isUserAuthenticated = true
-    //      guard let preMeetingService = MobileRTC.shared().getPreMeetingService() else { return }
-    //      preMeetingService.delegate = self
-          print("Zoom (User): Login task completed.")
         }
-        // Handled by MobileRTCPremeetingDelegate, returns result of logout function call.
-        func onMobileRTCLogoutReturn(_ returnValue: Int) {
-          guard returnValue == 0 else {
+        isUserAuthenticated = true
+        //      guard let preMeetingService = MobileRTC.shared().getPreMeetingService() else { return }
+        //      preMeetingService.delegate = self
+        print("Zoom (User): Login task completed.")
+    }
+    // Handled by MobileRTCPremeetingDelegate, returns result of logout function call.
+    func onMobileRTCLogoutReturn(_ returnValue: Int) {
+        guard returnValue == 0 else {
             print("Zoom (User): Logout task failed, error code: \(returnValue)")
             return
-          }
-          isUserAuthenticated = false
-          print("Zoom (User): Logout task completed.")
         }
-
+        isUserAuthenticated = false
+        print("Zoom (User): Logout task completed.")
+    }
+    
 }
 
 extension ViewController: MobileRTCMeetingServiceDelegate{
+    //    func onMeetingStateChange(_ state: MobileRTCMeetingState) {
+    //        print("Meeting State: \(state)")
+    //    }
+    func onMeetingError(_ error: MobileRTCMeetError, message: String!) {
+        //        UIApplication.stopActivityIndicator()
+        print(error.rawValue)
+    }
+    
     func onMeetingStateChange(_ state: MobileRTCMeetingState) {
         print("Meeting State: \(state)")
+        if state.rawValue == 2{
+            //if the meeting successfully starts, we will print out the info
+            let meetingInfo = MobileRTCInviteHelper()
+            print("JOINING URL: \(meetingInfo.joinMeetingURL)")
+            print("MEETING NUMBER: \(meetingInfo.ongoingMeetingNumber)")
+            print("MEETING TOPIC: \(meetingInfo.ongoingMeetingTopic)")
+            print("MEETING RAW PASSWORD: \(meetingInfo.rawMeetingPassword)")
+            //            print("MEETING RAW PASSWORD: \(meetingInfo.)")
+            
+        }
     }
 }
 
