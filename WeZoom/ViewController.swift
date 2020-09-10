@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileRTC
+import AVFoundation
 
 //LOCK MEETING
 //ENTER WITHOUT REQUESTING PERMISSION
@@ -71,6 +72,7 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate, MobileRTCMe
                                       kMeetingParam_MeetingNumber:" 95452918130",
                                       kMeetingParam_MeetingPassword:"393133"]
                 // service.disableShowVideoPreviewWhenJoinMeeting()
+                
                 // Join Zoom meeting.
                 let response = service.joinMeeting(with: paramDict)
                 print("onJoinMeeting, response: \(response)")
@@ -93,36 +95,21 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate, MobileRTCMe
             preMeetingService.delegate = self
             meetingItem.setMeetingTopic(self.meetingTopic)
             meetingItem.enableWaitingRoom(false)
+//            meetingItem.bottomBarHidden = true
             preMeetingService.scheduleMeeting(meetingItem, withScheduleFor: nil)
         }
         
-        
-        //        Instant Start Meeting Code without scheduling or anything
-        
-        //        let start = UIAlertAction(title: "Start", style: .default, handler: {
-        //            (action) in
-        //            // guard let meetingPassword = alert.textFields?[0].text else { return }
-        //            var paramDict: [String : Any] = [kMeetingParam_Username : self.kSDKUserName]
-        //            // Start Zoom meeting.
-        //
-        //            // paramDict[kMeetingParam_MeetingNumber] = meetingItem.getMeetingNumber()
-        //
-        //            paramDict[kMeetingParam_MeetingPassword] = ""
-        //
-        //            let getservice = MobileRTC.shared().getMeetingService()
-        //            //            let meetingInfo = MobileRTCInviteHelper()
-        //            if let service = getservice {
-        //                print("Getting started on Starting a Meeting ... ")
-        //                service.delegate = self
-        //                var paramDict: [String : Any] = [kMeetingParam_Username : self.kSDKUserName]
-        //
-        //                // Start Zoom meeting
-        //
-        //                let response = service.startMeeting(with: paramDict)
-        //                print("onStartMeeting, response: \(response)")
-        //            }
-        //        })
-        
+    }
+    
+    func bluetoothAudioConnected() -> Bool{
+        print("Inside checking the bluetooth")
+      let outputs = AVAudioSession.sharedInstance().currentRoute.outputs
+      for output in outputs{
+        if output.portType == AVAudioSession.Port.bluetoothA2DP || output.portType == AVAudioSession.Port.bluetoothHFP || output.portType == AVAudioSession.Port.bluetoothLE{
+          return true
+        }
+      }
+      return false
     }
     
     func startMeeting(meetingID : String){
@@ -130,9 +117,19 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate, MobileRTCMe
         // Start Zoom meeting.
         //        paramDict[kMeetingParam_MeetingPassword] = ""
         // let meetingInfo = MobileRTCInviteHelper()
+        
         if let meetingService = MobileRTC.shared().getMeetingService() {
+            if let meetingSetting = MobileRTC.shared().getMeetingSettings(){
+                meetingSetting.bottomBarHidden = true
+                if (bluetoothAudioConnected()){
+                    print("AUDIO CONNECTED TO BLUETOOTH")
+                     meetingSetting.setAutoConnectInternetAudio(true)
+                }
+//                meetingSetting.setFaceBeautyEnabled(true)
+                        
+            }
             let user = MobileRTCMeetingStartParam4LoginlUser()
-            //MobileRTC.shared()?.getMeetingSettings()?.meetingInviteHidden = true
+            
             let param:MobileRTCMeetingStartParam = user
             
             param.meetingNumber = meetingID
@@ -140,6 +137,7 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate, MobileRTCMe
             meetingService.delegate = self
             
             meetingService.customizeMeetingTitle("Calculus Midterm Review")
+
             
             let ret: MobileRTCMeetError = meetingService.startMeeting(with: param)
             
@@ -148,7 +146,7 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate, MobileRTCMe
     }
     
     //Custom UI alert for User to type in their email and password and MeetingTopic
-    func customLoginAlert(){
+    func customLoginAlert() {
         //        let alert = UIAlertController(title: "Zoom Sign In?", message: "Please sign in to Zoom Account ", preferredStyle: .alert)
         //        //Meeting setting where changes the meeting topics before hands
         //
