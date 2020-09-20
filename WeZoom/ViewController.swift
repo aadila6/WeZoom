@@ -125,8 +125,6 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate, MobileRTCMe
                     print("AUDIO CONNECTED TO BLUETOOTH")
                      meetingSetting.setAutoConnectInternetAudio(true)
                 }
-//                meetingSetting.setFaceBeautyEnabled(true)
-                        
             }
             let user = MobileRTCMeetingStartParam4LoginlUser()
             
@@ -214,8 +212,8 @@ class ViewController: UIViewController, MobileRTCPremeetingDelegate, MobileRTCMe
             print("MEETING TOPIC: \(meetingInfo.ongoingMeetingTopic)")
             print("MEETING RAW PASSWORD: \(meetingInfo.rawMeetingPassword)")
             let num = Int(meetingInfo.ongoingMeetingNumber)
-            
         }
+        
     }
 }
 
